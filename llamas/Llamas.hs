@@ -1,16 +1,18 @@
 {-# LANGUAGE RebindableSyntax, OverloadedStrings #-}
 
-import Fay.Text (fromString)
+import Fay.Text (append, fromString)
 import FFI
 import JQuery
 import Prelude
 
+officialName n = Fay.Text.append n " the Magnificent"
+
 handleClick :: Event -> Fay Bool
 handleClick e = do
   nameText <- select "#name-text"
-  officialName <- select "#official-name"
+  officialText <- select "#official-name"
   name <- getVal nameText
-  setHtml name officialName
+  (flip setHtml) officialText $ officialName name
   return True
 
 -- `ready` is the same as jQuery(document).ready(%1);

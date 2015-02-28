@@ -1,4 +1,7 @@
-Building
+# Llamas
+
+A silly example showing how to respond to button clicks.
+
 # Building & Running
 
 ```
